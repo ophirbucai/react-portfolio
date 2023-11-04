@@ -4,7 +4,7 @@ export const YTPlayerMedia = () => {
   const { playlist, currentSong, ref } = useMyPlaylist();
 
   return (
-    <AspectRatio.Root ratio={16 / 9}>
+    <AspectRatio.Root ratio={playlist[currentSong].ratio}>
       <iframe
         style={{ position: "absolute", bottom: "50%", left: "50%", transform: "translate(-50%, 50%)", width: "100%" }}
         ref={ref}
