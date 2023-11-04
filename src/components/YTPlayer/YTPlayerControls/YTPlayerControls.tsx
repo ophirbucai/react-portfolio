@@ -13,7 +13,7 @@ export const YTPlayerControls = () => {
   const { ref, isPlaying, setIsPlaying } = useMyPlaylist();
   function playPauseVideo() {
     if (ref.current?.contentWindow) {
-      const message = JSON.stringify({ event: 'command', func: isPlaying ? 'stopVideo' : 'playVideo' });
+      const message = JSON.stringify({ event: 'command', func: isPlaying ? 'pauseVideo' : 'playVideo' });
       ref.current.contentWindow.postMessage(message, "https://www.youtube.com");
       setIsPlaying(!isPlaying);
     }
