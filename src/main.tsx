@@ -11,7 +11,7 @@ import './index.css';
 ReactDOM.createRoot(document.body!).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <BrowserRouter>
+      <BrowserRouter basename="/react-portfolio">
         <AppLayout>
           <AppRouter/>
         </AppLayout>
