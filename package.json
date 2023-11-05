@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://ophirbucai.github.io/react-portfolio",
+  "homepage": "https://develophir.com",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build --outDir build",
