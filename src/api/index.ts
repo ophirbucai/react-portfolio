@@ -6,7 +6,7 @@ app.use(express.static('public'));
 
 app.set('serverOrigin', 'https://');
 
-app.get('*', (req, res) => {
+app.get('*', (_req, res) => {
   res.sendFile('index.html', { root: 'dist' });
 });
 
