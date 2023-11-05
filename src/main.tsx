@@ -8,7 +8,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { theme } from "./lib/constants";
 import './index.css';
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.body!).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <BrowserRouter>

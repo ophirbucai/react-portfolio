@@ -12,7 +12,7 @@ const AppLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
   }, [])
 
   return (
-    <div className="body">
+    <>
       <header>
         <Navigation items={headerNavigation}/>
       </header>
@@ -22,7 +22,7 @@ const AppLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
       <footer className="footer">
         <Copyright/>
       </footer>
-    </div>
+    </>
   );
 };
 
