@@ -3,6 +3,10 @@
 
 [//]: [**Blog**](https://ophirbucai.com 
 
+[**Show live demo**](https://develophir.com)
+
+Shipping good websites as a profession 🛳
+
 I have two intended purposes for my website:
 
 - Showcasing some of my work, creating high qualify, user-friendly sites with React. 
