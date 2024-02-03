@@ -1,2 +1,2 @@
-export * from './song.type.ts';
-export * from './playlist.type.ts';
+export * from './song.type.ts'
+export * from './playlist.type.ts'
