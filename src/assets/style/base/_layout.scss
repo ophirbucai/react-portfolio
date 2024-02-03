@@ -1,0 +1,54 @@
+.app-layout {
+    $gap: 8px;
+
+    height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    // grid-template-columns: $gap 1fr $gap;
+    align-content: start;
+    // justify-content: start;
+    // align-content: start;
+    // grid-template-columns: auto 1fr;
+    // grid-template-rows: 1fr;
+
+
+    >nav,
+    >footer {
+        padding: 1rem;
+    }
+
+    >nav {
+        font-size: 1.15rem;
+        display: grid;
+        grid-auto-flow: column;
+        align-items: start;
+        justify-content: space-between;
+
+        .social {
+            display: flex;
+
+            a {
+                padding: .5em;
+
+                &:hover svg {
+                    scale: 1.04;
+                }
+
+                svg {
+                    width: 1em;
+                    height: 1em;
+                }
+            }
+        }
+
+        .menu {
+            display: flex;
+
+            li {
+                margin-bottom: .5em;
+            }
+        }
+    }
+
+    >main.content {}
+}
