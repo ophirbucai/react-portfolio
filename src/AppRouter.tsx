@@ -1,4 +1,3 @@
-import './App.css'
 import { Suspense } from 'react'
 import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 import { Home, About, Construction, Connect } from './pages'
