@@ -1,12 +1,17 @@
+/* Setup */
 @import 'setup/variables';
 @import 'setup/mixins';
 @import 'setup/functions';
 @import 'setup/typography';
 @import 'setup/reset';
 
-
+/* Base */
 @import 'base/base';
 @import 'base/layout';
 @import 'base/helpers';
 
+/* Pages */
+@import 'pages/landing';
+
+/* Components */
 @import 'components/construction';
