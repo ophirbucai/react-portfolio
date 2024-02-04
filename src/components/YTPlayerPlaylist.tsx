@@ -5,7 +5,7 @@ import MenuItem from '@mui/material/MenuItem'
 import IconButton from '@mui/material/IconButton'
 import Typography from '@mui/material/Typography'
 import MenuIcon from '@mui/icons-material/Menu'
-import useMyPlaylist from '../../../hooks/useMyPlaylist'
+import useMyPlaylist from '../hooks/useMyPlaylist.tsx'
 
 export const YTPlayerPlaylist = () => {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
