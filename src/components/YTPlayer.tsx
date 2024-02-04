@@ -10,7 +10,6 @@ import { YTPlayerControls } from './YTPlayerControls.tsx'
 import { YTPlayerInfo } from './YTPlayerInfo.tsx'
 import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
-import Stack from '@mui/material/Stack'
 
 export const YTPlayer = () => {
     const [playlist, setPlaylist] = useState(myPlaylist)

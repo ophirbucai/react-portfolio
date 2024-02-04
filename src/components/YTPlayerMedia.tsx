@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react'
 import useMyPlaylist from '../hooks/useMyPlaylist.tsx'
 
 export const YTPlayerMedia = () => {
-    const { playlist, currentSong, setPlayerReady, setPlayerState, ref } = useMyPlaylist()
+    const { setPlayerReady, setPlayerState, ref } = useMyPlaylist()
     const playerId = useRef(crypto.randomUUID())
 
     const playerVars: YT.PlayerOptions['playerVars'] = {

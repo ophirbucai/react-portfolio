@@ -8,7 +8,7 @@ import useMyPlaylist from '../hooks/useMyPlaylist.tsx'
 
 export const YTPlayerControls = () => {
     const [volume, setVolume] = useState(15)
-    const { ref, playerState, playerReady } = useMyPlaylist()
+    const { ref, playerReady } = useMyPlaylist()
 
     function onNextClick() {
         ref.current?.nextVideo()
@@ -21,7 +21,9 @@ export const YTPlayerControls = () => {
     function onEmitEvent(e: any) {
         e.preventDefault()
         console.log('initiating', e.target[0].value)
+        // @ts-ignore
         if (typeof ref.current?.[e.target[0].value] === 'function') {
+            // @ts-ignore
             console.log(ref.current[e.target[0].value]())
         }
     }
