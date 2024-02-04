@@ -8,7 +8,7 @@ const AppRouter = () => {
     return (
         <Router>
             <Routes>
-                <Route path={navigation.paths.root} element={<Layout />}>
+                <Route path={navigation.paths.root} element={import.meta.env.DEV ? <Layout /> : <Suspense><Construction /></Suspense>}>
                     <Route index element={<Suspense><Home /></Suspense>} />
                     <Route path={navigation.paths.about} element={<Suspense><About /></Suspense>} />
                     <Route path={navigation.paths.connect} element={<Suspense><Connect /></Suspense>} />

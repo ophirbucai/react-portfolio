@@ -1,0 +1,49 @@
+.effect {
+    position: relative;
+    color: rgb(120, 184, 240);
+    transition: font-weight 200ms linear;
+
+    // #00FFFF 70%
+    &:before {
+        // text-shadow: .05em .05em 0 $color-base;
+        content: attr(data-text);
+        transform-origin: left;
+        color: rgb(0, 22, 41);
+        overflow: hidden;
+        // color: $color-base;
+        // opacity: 0.3;
+        position: absolute;
+        left: 0;
+        width: 0;
+        height: 1lh;
+        background: linear-gradient(90deg, $color-primary 20%, transparent 100%);
+        background-position: 0 50%;
+        background-size: auto 50%;
+        background-repeat: no-repeat;
+        @include transition(width);
+    }
+
+    &.active {
+        font-weight: 600;
+    }
+
+    &:hover {
+        scale: 1.04;
+
+        &:before {
+            width: 100%;
+        }
+    }
+}
+
+.h-4 {
+    height: 24px;
+}
+
+.w-4 {
+    width: 24px;
+}
+
+.color-primary {
+    color: $color-primary;
+}

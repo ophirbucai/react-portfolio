@@ -1,11 +1,12 @@
+import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import Box from '@mui/material/Box'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 import IconButton from '@mui/material/IconButton'
 import Typography from '@mui/material/Typography'
-import MenuIcon from '@mui/icons-material/Menu'
-import useMyPlaylist from '../../../hooks/useMyPlaylist'
+import useMyPlaylist from '../hooks/useMyPlaylist.tsx'
 
 export const YTPlayerPlaylist = () => {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
@@ -17,7 +18,7 @@ export const YTPlayerPlaylist = () => {
 
     return (
         <Box>
-            <IconButton onClick={handleClick}><MenuIcon/></IconButton>
+            <IconButton onClick={handleClick}><FontAwesomeIcon icon={faBars} /></IconButton>
             <Menu open={open} onClose={handleClose}>
                 {playlist.map((song, index) => (
                     <MenuItem key={song.path} onClick={() => {

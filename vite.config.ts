@@ -1,15 +1,18 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import eslint from 'vite-plugin-eslint';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import svgr from 'vite-plugin-svgr'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), eslint()],
+  plugins: [react(), svgr({
+    svgrOptions: { exportType: 'default', ref: true, svgo: false, titleProp: true },
+    include: '**/*.svg',
+  })],
   resolve: {
     alias: {
-      "@components": "./src/components",
-      "@hooks": "./src/hooks",
-      "@pages": "./src/pages",
+      '@components': './src/components',
+      '@hooks': './src/hooks',
+      '@pages': './src/pages',
     },
   },
-});
+})
