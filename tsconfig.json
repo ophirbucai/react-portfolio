@@ -8,6 +8,7 @@
       "DOM.Iterable"
     ],
     "module": "ESNext",
+    "types": ["@types/youtube"],
     "skipLibCheck": true,
     /* Bundler mode */
     "moduleResolution": "bundler",
