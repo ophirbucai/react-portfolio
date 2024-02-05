@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import React, { Suspense, useEffect } from 'react'
 import { Outlet } from 'react-router-dom'
 import cn from './assets/utils/cn.ts'
 import { Copyright } from './components'
@@ -6,6 +6,11 @@ import { Copyright } from './components'
 const DefaultNav = React.lazy(() => import('./components/DefaultNav'))
 
 const AppLayout = ({ children }: React.PropsWithChildren) => {
+    useEffect(() => {
+        if (!children) document.body.setAttribute('disable-scroll-y', '')
+        return () => document.body.removeAttribute('disabled-scroll-y')
+    }, [])
+
     return (
         <div className='app-layout'>
             {children ? children : (
