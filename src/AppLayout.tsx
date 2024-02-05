@@ -1,11 +1,18 @@
-import { Outlet } from 'react-router-dom'
 import React, { Suspense, useEffect } from 'react'
+import { Outlet, useNavigate } from 'react-router-dom'
 import cn from './assets/utils/cn.ts'
 import { Copyright } from './components'
+import navigation from './lib/constants/navigation'
 
 const DefaultNav = React.lazy(() => import('./components/DefaultNav'))
 
 const AppLayout = ({ children }: React.PropsWithChildren) => {
+    const navigate = useNavigate()
+
+    if (!children && import.meta.env.PROD) {
+        navigate(navigation.paths.CONSTRUCTION, { replace: true })
+    }
+
     useEffect(() => {
         if (!children) document.body.setAttribute('disable-scroll-y', '')
         return () => document.body.removeAttribute('disabled-scroll-y')
