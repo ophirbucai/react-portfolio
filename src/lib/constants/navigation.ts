@@ -18,7 +18,9 @@ const items = [
     { label: 'Projects', path: Routes.PROJECTS }
 ]
 
-export default {
+const navigation = {
     paths: Routes,
     items
 }
+
+export default navigation
