@@ -1,11 +1,16 @@
-import React, { Suspense } from 'react'
 import { Outlet } from 'react-router-dom'
+import React, { Suspense, useEffect } from 'react'
 import cn from './assets/utils/cn.ts'
 import { Copyright } from './components'
 
 const DefaultNav = React.lazy(() => import('./components/DefaultNav'))
 
 const AppLayout = ({ children }: React.PropsWithChildren) => {
+    useEffect(() => {
+        if (!children) document.body.setAttribute('disable-scroll-y', '')
+        return () => document.body.removeAttribute('disabled-scroll-y')
+    }, [])
+
     return (
         <div className='app-layout'>
             {children ? children : (
@@ -31,7 +36,6 @@ const Nav = ({ children }: React.PropsWithChildren) => {
 
 const Main = ({ className, children }: React.PropsWithChildren<{ className?: string }>) => {
     return (
-        <main className={['content', className].filter(Boolean).join(' ')}>
         <main className={cn('content', className)}>
             {children ? children : <Outlet />}
         </main>
