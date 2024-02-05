@@ -1,5 +1,5 @@
 import { Suspense } from 'react'
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import AppLayout from './AppLayout.tsx'
 import { Home, About, Construction, Connect, Blog, Projects } from './pages'
 import navigation from './lib/constants/navigation'
@@ -16,7 +16,6 @@ const AppRouter = () => {
                     <Route path={navigation.paths.BLOG} element={<Suspense><Blog /></Suspense>} />
                 </Route>
                 <Route path={navigation.paths.CONSTRUCTION} element={<Suspense><Construction /></Suspense>} />
-                <Route path='*' element={<Navigate to={navigation.paths.CONSTRUCTION} />} />
             </Routes>
         </Router>
     )
