@@ -9,14 +9,14 @@ const DefaultNav = React.lazy(() => import('./components/DefaultNav'))
 const AppLayout = ({ children }: React.PropsWithChildren) => {
     const navigate = useNavigate()
 
+    if (!children && import.meta.env.PROD) {
+        navigate(navigation.paths.CONSTRUCTION, { replace: true })
+    }
+
     useEffect(() => {
         if (!children) document.body.setAttribute('disable-scroll-y', '')
         return () => document.body.removeAttribute('disabled-scroll-y')
     }, [])
-
-    if (!children && import.meta.env.PROD) {
-        navigate(navigation.paths.CONSTRUCTION, { replace: true })
-    }
 
     return (
         <div className='app-layout'>
@@ -43,7 +43,7 @@ const Nav = ({ children }: React.PropsWithChildren) => {
 
 const Main = ({ className, children }: React.PropsWithChildren<{ className?: string }>) => {
     return (
-        <main className={cn('content', className, 'pierre', false && 'ophir')}>
+        <main className={cn('content', className)}>
             {children ? children : <Outlet />}
         </main>
     )
