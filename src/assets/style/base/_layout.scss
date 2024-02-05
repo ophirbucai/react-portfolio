@@ -1,23 +1,23 @@
 .app-layout {
-    $gap: 8px;
-
+    $gutter: 16px;
     height: 100vh;
     display: grid;
     grid-template-rows: auto 1fr auto;
-    // grid-template-columns: $gap 1fr $gap;
+    grid-template-columns: minmax($gutter, auto) minmax(auto, 1200px) minmax($gutter, auto);
     align-content: start;
-    // justify-content: start;
-    // align-content: start;
-    // grid-template-columns: auto 1fr;
-    // grid-template-rows: 1fr;
 
-
-    >nav,
-    >footer {
+    > nav,
+    > footer {
         padding: 1rem;
     }
 
-    >nav {
+    > * {
+        grid-column: 2;
+    }
+
+    > main.content {}
+
+    > nav {
         font-size: 1.15rem;
         display: grid;
         grid-auto-flow: column;
@@ -50,5 +50,4 @@
         }
     }
 
-    >main.content {}
 }
