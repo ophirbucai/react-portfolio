@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react'
 import { Outlet } from 'react-router-dom'
+import cn from './assets/utils/cn.ts'
 import { Copyright } from './components'
 
 const DefaultNav = React.lazy(() => import('./components/DefaultNav'))
@@ -30,7 +31,7 @@ const Nav = ({ children }: React.PropsWithChildren) => {
 
 const Main = ({ className, children }: React.PropsWithChildren<{ className?: string }>) => {
     return (
-        <main className={['content', className].filter(Boolean).join(' ')}>
+        <main className={cn('content', className, 'pierre', false && 'ophir')}>
             {children ? children : <Outlet />}
         </main>
     )
