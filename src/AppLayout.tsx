@@ -1,4 +1,5 @@
 import React, { Suspense } from 'react'
+import { Outlet } from 'react-router-dom'
 import { Copyright } from './components'
 
 const DefaultNav = React.lazy(() => import('./components/DefaultNav'))
@@ -9,6 +10,7 @@ const AppLayout = ({ children }: React.PropsWithChildren) => {
             {children ? children : (
                 <>
                     <AppLayout.Nav />
+                    <AppLayout.Main />
                 </>
             )}
             <footer className='footer'>
@@ -26,8 +28,20 @@ const Nav = ({ children }: React.PropsWithChildren) => {
     )
 }
 
+const Main = ({ className, children }: React.PropsWithChildren<{ className?: string }>) => {
+    return (
+        <main className={['content', className].filter(Boolean).join(' ')}>
+            {children ? children : <Outlet />}
+        </main>
+    )
+}
+
 Nav.displayName = 'AppLayout.Nav'
 
+Main.displayName = 'AppLayout.Main'
+
 AppLayout.Nav = Nav
+
+AppLayout.Main = Main
 
 export default AppLayout

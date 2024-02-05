@@ -1,15 +1,15 @@
 import React from 'react'
-import { YTPlayer, Copyright, SocialLinks } from '../components'
+import AppLayout from '../AppLayout.tsx'
+import { YTPlayer, SocialLinks } from '../components'
+import GitIcon from '../assets/icons/git.svg'
 
 const Construction: React.FC = () => {
     return (
-        <div className='app-layout'>
-            <nav>
-                <ul>
-                    <SocialLinks/>
-                </ul>
-            </nav>
-            <main className='content construction'>
+        <AppLayout>
+            <AppLayout.Nav>
+                <SocialLinks links={[{ children: <GitIcon />, href: 'https://github.com/ophirbucai/react-portfolio' }]} />
+            </AppLayout.Nav>
+            <AppLayout.Main className='construction'>
                 <header>
                     <h1>Under Construction</h1>
                     <p>Hi! I'm <strong>Ophir</strong>, a Frontend Developer based in Israel :) .</p>
@@ -19,20 +19,18 @@ const Construction: React.FC = () => {
                     <h2>Contact me</h2>
                     <nav className='contact'>
                         <ul>
-                            <li>You are welcome to shoot me a msg at <a className='effect' data-text='ophirbucai@gmail.com'
-                                href='mailto:ophirbucai@gmail.com'>ophirbucai@gmail.com</a></li>
+                            <li>You are welcome to shoot me a msg
+                                at <a className='effect' data-text='ophirbucai@gmail.com' href='mailto:ophirbucai@gmail.com'>ophirbucai@gmail.com</a>
+                            </li>
                         </ul>
                     </nav>
                 </section>
                 <section>
                     <p>In the meantime, I invite you to listen to a cool song from my playlist:</p>
-                    <YTPlayer/>
+                    <YTPlayer />
                 </section>
-            </main>
-            <footer className='footer'>
-                <Copyright/>
-            </footer>
-        </div>
+            </AppLayout.Main>
+        </AppLayout>
     )
 }
 
