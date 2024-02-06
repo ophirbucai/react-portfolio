@@ -1,5 +1,4 @@
 .app-layout:has(.construction) {
-    max-width: 1100px;
     > nav ul {
         &:after {
             content: "develophir.com";

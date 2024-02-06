@@ -19,7 +19,7 @@ export const YTPlayer = () => {
     const ref = useRef(null)
 
     return (
-        <Card sx={{ marginX: 'auto', borderRadius: '12px', maxWidth: '900px', mt: 2 }}>
+        <Card sx={{ marginX: 'auto', borderRadius: '12px', mt: 2 }}>
             <myPlaylistContext.Provider value={{
                 playlist,
                 setPlaylist,

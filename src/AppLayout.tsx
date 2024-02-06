@@ -1,62 +1,60 @@
-import React, { useRef } from 'react'
-import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom'
-import { SocialLinks, Copyright } from './components'
+import React, { Suspense, useEffect } from 'react'
+import { Outlet, useNavigate } from 'react-router-dom'
+import cn from './assets/utils/cn.ts'
+import { Copyright } from './components'
 import navigation from './lib/constants/navigation'
 
-const AppLayout: React.FC = () => {
-    const isNavigating = useRef<boolean>(false)
-    const currentIndex = useRef<number>(0)
+const DefaultNav = React.lazy(() => import('./components/DefaultNav'))
+
+const AppLayout = ({ children }: React.PropsWithChildren) => {
     const navigate = useNavigate()
-    const location = useLocation()
 
-    const headerNavigation = React.useMemo(() => {
-        return navigation.items.map(({ label, path }) => ({ children: label, to: path }))
-    }, [])
+    if (!children && import.meta.env.PROD) {
+        navigate(navigation.paths.CONSTRUCTION, { replace: true })
+    }
 
-    React.useEffect(() => {
-        currentIndex.current = navigation.items.findIndex(({ path }) => (path === location.pathname))
-
-    }, [location.pathname])
-
-    React.useEffect(() => {
-        const handleScroll = (e: WheelEvent) => {
-            if (isNavigating.current) return
-            const nextIndex = e.deltaY > 0 ? 1 : -1
-            if ((nextIndex === -1 && currentIndex.current === 0) || (nextIndex === 1 && currentIndex.current + 1 === navigation.items.length)) return
-            isNavigating.current = true
-            console.log(nextIndex + currentIndex.current, currentIndex.current)
-            navigate(headerNavigation[currentIndex.current + nextIndex].to)
-            window.setTimeout(() => {
-                isNavigating.current = false
-            }, 300)
-        }
-
-        window.addEventListener('wheel', handleScroll, false)
-
-        return () => {
-            window.removeEventListener('wheel', handleScroll, false)
-        }
+    useEffect(() => {
+        if (!children) document.body.setAttribute('disable-scroll-y', '')
+        return () => document.body.removeAttribute('disabled-scroll-y')
     }, [])
 
     return (
         <div className='app-layout'>
-            <nav>
-                <ul className='menu'>
-                    {headerNavigation.map((props) => <li key={props.to}><NavLink className='effect' {...props}
-                                                                                 data-text={props.children}/></li>)}
-                </ul>
-                <ul className='social'>
-                    <SocialLinks/>
-                </ul>
-            </nav>
-            <main className='content'>
-                <Outlet/>
-            </main>
+            {children ? children : (
+                <>
+                    <AppLayout.Nav />
+                    <AppLayout.Main />
+                </>
+            )}
             <footer className='footer'>
-                <Copyright/>
+                <Copyright />
             </footer>
         </div>
     )
 }
+
+const Nav = ({ children }: React.PropsWithChildren) => {
+    return (
+        <nav>
+            {children ? children : <Suspense><DefaultNav /></Suspense>}
+        </nav>
+    )
+}
+
+const Main = ({ className, children }: React.PropsWithChildren<{ className?: string }>) => {
+    return (
+        <main className={cn('content', className)}>
+            {children ? children : <Outlet />}
+        </main>
+    )
+}
+
+Nav.displayName = 'AppLayout.Nav'
+
+Main.displayName = 'AppLayout.Main'
+
+AppLayout.Nav = Nav
+
+AppLayout.Main = Main
 
 export default AppLayout

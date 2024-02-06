@@ -1,23 +1,26 @@
-const routes = {
-    root: '/',
-    about: '/about',
-    connect: '/connect',
-    blog: '/blog',
-    blogPost: '/blog/:slug',
-    projects: '/projects',
-    project: '/projects/:slug',
-    notFound: '/404'
+enum Routes {
+    ROOT = '/',
+    ABOUT = '/about',
+    CONNECT = '/connect',
+    BLOG = '/blog',
+    BLOG_POST = '/blog/:slug',
+    PROJECTS = '/projects',
+    PROJECT = '/projects/:slug',
+    NOT_FOUND = '/404',
+    CONSTRUCTION = '/construction'
 }
 
 const items = [
-    { label: 'Home', path: routes.root },
-    { label: 'About', path: routes.about },
-    { label: 'Connect', path: routes.connect },
-    { label: 'Blog', path: routes.blog },
-    { label: 'Projects', path: routes.projects }
+    { label: 'Home', path: Routes.ROOT },
+    { label: 'About', path: Routes.ABOUT },
+    { label: 'Connect', path: Routes.CONNECT },
+    { label: 'Blog', path: Routes.BLOG },
+    { label: 'Projects', path: Routes.PROJECTS }
 ]
 
-export default {
-    paths: routes,
+const navigation = {
+    paths: Routes,
     items
 }
+
+export default navigation
