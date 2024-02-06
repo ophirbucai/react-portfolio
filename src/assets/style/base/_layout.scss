@@ -1,15 +1,11 @@
 .app-layout {
-    $gap: 8px;
-
+    $gutter: 16px;
     height: 100vh;
     display: grid;
     grid-template-rows: auto 1fr auto;
-    // grid-template-columns: $gap 1fr $gap;
+    align-items: center;
+    grid-template-columns: minmax($gutter, auto) minmax(auto, 1200px) minmax($gutter, auto);
     align-content: start;
-    // justify-content: start;
-    // align-content: start;
-    // grid-template-columns: auto 1fr;
-    // grid-template-rows: 1fr;
 
 
     >nav,
@@ -17,11 +13,19 @@
         padding: 1rem;
     }
 
+    > * {
+        grid-column: 2;
+    }
+
+    > main.content {
+        grid-row: 2
+    }
+
     >nav {
         font-size: 1.15rem;
         display: grid;
         grid-auto-flow: column;
-        align-items: start;
+        align-items: center;
         justify-content: space-between;
 
         .social {
@@ -50,5 +54,7 @@
         }
     }
 
-    >main.content {}
+    >main.content {
+        padding: $gutter;
+    }
 }
