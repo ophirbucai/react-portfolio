@@ -47,7 +47,7 @@ export const YTPlayerMedia = () => {
     return (
         <>
             {/*<button onClick={() => console.log(ref.current?.getDuration())}>getDuration</button>*/}
-            <AspectRatio.Root ratio={4 / 2.25}>
+            <AspectRatio.Root ratio={4 / 2.25} style={{ userSelect: 'none' }}>
                 <iframe
                     style={{
                         position: 'absolute',
