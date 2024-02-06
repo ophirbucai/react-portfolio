@@ -1,22 +1,25 @@
 .effect {
     position: relative;
-    color: rgb(120, 184, 240);
+    //color: rgb(120, 184, 240);
+    color: $clr-14;
     transition: font-weight 200ms linear;
 
-    // #00FFFF 70%
+     //#00FFFF 70%
     &:before {
         // text-shadow: .05em .05em 0 $color-base;
         content: attr(data-text);
         transform-origin: left;
-        color: rgb(0, 22, 41);
+        //color: rgb(0, 22, 41);
+        color: $clr-59;
         overflow: hidden;
         // color: $color-base;
         // opacity: 0.3;
+        opacity: 0.7;
         position: absolute;
         left: 0;
         width: 0;
         height: 1lh;
-        background: linear-gradient(90deg, $color-primary 20%, transparent 100%);
+        background: linear-gradient(90deg, $clr-sea 20%, $clr-sea 50%, transparent 100%);
         background-position: 0 50%;
         background-size: auto 50%;
         background-repeat: no-repeat;
@@ -36,14 +39,3 @@
     }
 }
 
-.h-4 {
-    height: 24px;
-}
-
-.w-4 {
-    width: 24px;
-}
-
-.color-primary {
-    color: $color-primary;
-}

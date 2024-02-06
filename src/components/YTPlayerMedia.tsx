@@ -29,7 +29,7 @@ export const YTPlayerMedia = () => {
                     setPlayerReady(true)
                     ref.current = Object.assign(player, ref.current)
                     // ref.current?.loadVideoById(playlist[currentSong].path)
-                    ref.current?.loadPlaylist("RDEnNgASBdCeo", 1, 0, 'highres'),
+                    ref.current?.loadPlaylist("RDEnNgASBdCeo", 1, 0, 'highres')
                     ref.current?.setVolume(15)
                     console.log(ref.current)
                 },
@@ -47,7 +47,7 @@ export const YTPlayerMedia = () => {
     return (
         <>
             {/*<button onClick={() => console.log(ref.current?.getDuration())}>getDuration</button>*/}
-            <AspectRatio.Root ratio={4 / 2.25}>
+            <AspectRatio.Root ratio={4 / 2.25} style={{ userSelect: 'none' }}>
                 <iframe
                     style={{
                         position: 'absolute',

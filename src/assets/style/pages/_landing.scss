@@ -1,18 +1,39 @@
 .landing {
-    .landing__title {
-        font-size: 2rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-        color: $color-primary;
+    hgroup.landing__title {
+        font-size: 1.5rem;
+        padding: 1rem;
+        filter: drop-shadow(3px 3px 0 rgba(0, 0, 0, .3));
+
+        /* Change the typewriter container layout as needed: */
+        /* Centered: */
+        //text-align: center;
+
+        /* Baseline: */
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 0 1rem;
+        /* Fin */
+
+        h1 {
+            color: $clr-7;
+        }
     }
 
     .landing__subtitle {
-        font-size: 1.5rem;
-        font-weight: 400;
         margin-bottom: 1rem;
     }
 
     .landing__button {
         margin-top: 1rem;
+    }
+
+    section {
+        padding: 1rem;
+        margin-bottom: 2rem;
+
+        p {
+            margin-bottom: 1rem;
+        }
     }
 }

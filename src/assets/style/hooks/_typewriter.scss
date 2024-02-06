@@ -1,0 +1,55 @@
+.word {
+    position: relative;
+    display: inline-block;
+
+    &:before {
+        content: attr(data-longest-word);
+        opacity: 0;
+        transform: translate(-50%, -50%);
+    }
+
+    span {
+        width: 100%;
+        left: 0;
+        top: 0;
+        position: absolute;
+
+        /* maintain size */
+        &:before {
+            position: absolute;
+            opacity: 0;
+            left: 0;
+            content: attr(data-current-word);
+        }
+
+        /* caret */
+        &:after {
+            background: currentColor;
+            content: '';
+            width: 4px;
+            height: .9lh;
+            position: absolute;
+            margin-left: 2px;
+            animation: blink var(--blink-speed, 450ms) ease-in infinite alternate-reverse;
+        }
+    }
+
+    &.empty {
+        visibility: hidden;
+
+        &:before {
+            visibility: visible;
+        }
+    }
+}
+
+@keyframes blink {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
