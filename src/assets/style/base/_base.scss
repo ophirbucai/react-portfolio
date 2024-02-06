@@ -1,9 +1,9 @@
 :root {
-    font-family: $font-family-base;
-    font-size: $font-size-base;
-    line-height: $line-height-base;
-    color: $color-base;
-    background-color: $background-color-base;
+    font-family: $ff-halyard-text;
+    font-size: $fs-base;
+    line-height: $lh-base;
+    color: $clr-69;
+    background-color: $clr-sea;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
@@ -18,7 +18,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: $font-family-display;
+    font-family: $ff-new-spirit;
     font-weight: 700;
     line-height: 1.1;
     margin-top: 0;
