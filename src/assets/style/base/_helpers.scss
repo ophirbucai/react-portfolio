@@ -1,5 +1,6 @@
 .effect {
     position: relative;
+    //color: rgb(120, 184, 240);
     color: $clr-14;
     transition: font-weight 200ms linear;
 
@@ -11,8 +12,9 @@
         //color: rgb(0, 22, 41);
         color: $clr-59;
         overflow: hidden;
-         //color: $color-base;
-         opacity: 0.7;
+        // color: $color-base;
+        // opacity: 0.3;
+        opacity: 0.7;
         position: absolute;
         left: 0;
         width: 0;
