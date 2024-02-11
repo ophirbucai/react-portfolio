@@ -24,6 +24,7 @@ export const YTPlayerControls = () => {
     }
 
     function onSetVolume(value: number) {
+        value = value < 0 ? 0 : value > 100 ? 100 : value
         setVolume(value)
         ref.current?.setVolume(value)
     }
@@ -31,9 +32,9 @@ export const YTPlayerControls = () => {
     if (!playerReady) return null
     return (
         <Grid container sx={{ textAlign: 'center', px: 1 }}>
-            <Grid item xs={4}></Grid>
             {/* TODO: Make event emitter work consistently
-                <Grid item xs={4}><form onSubmit={(e: any) => {
+            <Grid item xs={4}>
+                <form onSubmit={(e: any) => {
                      e.preventDefault()
                      console.log('initiating', e.target[0].value)
                      // @ts-ignore
@@ -50,7 +51,8 @@ export const YTPlayerControls = () => {
                             value: 'startVideo'
                         }]}
                     />
-                </form> </Grid>*/}
+                </form> 
+            </Grid>*/}
             <Grid item xs={true} sx={{ display: 'flex', gap: 5, justifyContent: 'center' }}>
                 <IconButton size='small' aria-label='previous' onClick={onPrevClick}> <FaIcon icon={faBackward} />
                 </IconButton>
@@ -61,15 +63,21 @@ export const YTPlayerControls = () => {
                     <IconButton size='large' aria-label='play/pause' onClick={onPausePlay}>{isPlaying ? <FaIcon icon={faPause}/> : <FaIcon icon={faPlay}/>}</IconButton>*/}
                 <IconButton size='small' aria-label='next' onClick={onNextClick}> <FaIcon icon={faForward} />
                 </IconButton>
-            </Grid> <Grid xs={4} item sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            <FaIcon icon={volume === 0 ? faVolumeMute : faVolumeDown} onClick={() => onSetVolume(volume - 15)} />
-            <Slider
-                value={volume}
-                onChange={(_e, value) => onSetVolume(+value)}
-                size='small'
-                min={0}
-                max={100} /> <FaIcon icon={faVolumeUp} onClick={() => onSetVolume(volume + 15)} />
-        </Grid>
+            </Grid> 
+            <Grid xs={4} item sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                <FaIcon icon={volume === 0 ? faVolumeMute : faVolumeDown} onClick={() => onSetVolume(volume - 15)} />
+                <Slider
+                    value={volume}
+                    onChange={(_e, value) => onSetVolume(+value)}
+                    size='small'
+                    min={0}
+                    max={100} 
+                /> 
+                <FaIcon 
+                    icon={faVolumeUp} 
+                    onClick={() => onSetVolume(volume + 15)} 
+                />
+            </Grid>
         </Grid>
     )
 }
