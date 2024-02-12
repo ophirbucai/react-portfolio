@@ -1,14 +1,10 @@
 import { FontAwesomeIcon as FaIcon } from '@fortawesome/react-fontawesome'
 import {
     faForward,
-    faBackward,
-    faVolumeDown,
-    faVolumeUp,
-    faVolumeMute
+    faBackward
 } from '@fortawesome/free-solid-svg-icons'
-import { Slider, Grid } from '@mui/material'
+import { Grid } from '@mui/material'
 import IconButton from '@mui/material/IconButton'
-import { useState } from 'react'
 import useMyPlaylist from '../hooks/useMyPlaylist.tsx'
 
 export const YTPlayerControls = () => {
