@@ -1,7 +1,9 @@
 import React from 'react'
+import { useTypewriter } from '../hooks/useTypewriter'
 import { YTPlayer, Copyright, SocialLinks } from '../components'
 
 const Construction: React.FC = () => {
+    const { word } = useTypewriter(['Construction', 'Development', 'Investi', '🫢'])
     return (
         <div className='app-layout'>
             <nav>
@@ -11,7 +13,7 @@ const Construction: React.FC = () => {
             </nav>
             <main className='content construction'>
                 <header>
-                    <h1>Under Construction</h1>
+                    <h1>Under {word}</h1>
                     <p>Hi! I'm <strong>Ophir</strong>, a Frontend Developer based in Israel :) .</p>
                     <p>I'm working on making a beautiful website to showcase my work.</p>
                 </header>
