@@ -21,15 +21,13 @@ export const YTPlayerMedia = () => {
         // TODO: Fix browser issue - interactivity with iframe, ref.current?.contentWindow?.document.body.click()
         const player: YT.Player = new YT.Player(playerId.current, {
             playerVars,
-            width: '100%',
-            height: '100%',
             events: {
                 'onStateChange': ({ data }) => setPlayerState(data),
                 'onReady': () => {
                     setPlayerReady(true)
                     ref.current = Object.assign(player, ref.current)
                     // ref.current?.loadVideoById(playlist[currentSong].path)
-                    ref.current?.loadPlaylist("RDEnNgASBdCeo", Math.floor(math.random() * 45, 0), 'highres'),
+                    ref.current?.loadPlaylist("RDEnNgASBdCeo", Math.floor(Math.random() * 45), 0, 'highres'),
                     ref.current?.setVolume(15)
                 },
                 'onError': (err: any) => {
@@ -50,7 +48,9 @@ export const YTPlayerMedia = () => {
                 <iframe
                     style={{
                         position: 'absolute',
-                        inset: 0
+                        border: 'none',
+                        top: '1px',
+                        scale: 1.0025
                     }}
                     id={playerId.current}
                     width='100%'
