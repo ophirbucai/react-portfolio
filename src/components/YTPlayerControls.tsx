@@ -52,7 +52,7 @@ export const YTPlayerControls = () => {
             </Grid>*/}
             <Grid item xs={true} sx={{ display: 'flex', gap: 2, justifyContent: 'space-between' }}>
                 <IconButton size='small' aria-label='previous' onClick={onPrevClick}>
-                    <FaIcon icon={faBackward} />
+                    <FaIcon icon={faBackward} size='xs' />
                 </IconButton>
                 {/*TODO: Make Play/pause work consistently
                     const isPlaying = playerState === YT.PlayerState.PLAYING
@@ -60,7 +60,7 @@ export const YTPlayerControls = () => {
                         isPlaying ? ref.current?.pauseVideo() : ref.current?.playVideo()
                     <IconButton size='large' aria-label='play/pause' onClick={onPausePlay}>{isPlaying ? <FaIcon icon={faPause}/> : <FaIcon icon={faPlay}/>}</IconButton>*/}
                 <IconButton size='small' aria-label='next' onClick={onNextClick}>
-                    <FaIcon icon={faForward} />
+                    <FaIcon icon={faForward} size='xs' />
                 </IconButton>
             </Grid> 
             {/* TODO: Fix volume on mobile
