@@ -21,8 +21,6 @@ export const YTPlayerMedia = () => {
         // TODO: Fix browser issue - interactivity with iframe, ref.current?.contentWindow?.document.body.click()
         const player: YT.Player = new YT.Player(playerId.current, {
             playerVars,
-            width: 'calc(100% + 2px)',
-            height: 'calc(100% + 2px)',
             events: {
                 'onStateChange': ({ data }) => setPlayerState(data),
                 'onReady': () => {
@@ -50,11 +48,11 @@ export const YTPlayerMedia = () => {
                 <iframe
                     style={{
                         position: 'absolute',
-                        inset: "-1px"
+                        border: 0
                     }}
                     id={playerId.current}
-                    width='calc(100% + 2px)'
-                    height='calc(100% + 2px)'
+                    width='100%'
+                    height='100%'
                     frameBorder='0'
                     src={`${window.origin.includes('https') ? 'https' : 'http'}://www.youtube.com/embed?${params.toString()}`}
                     ref={ref}
