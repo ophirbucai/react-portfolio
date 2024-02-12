@@ -29,7 +29,7 @@ export const YTPlayerMedia = () => {
                     setPlayerReady(true)
                     ref.current = Object.assign(player, ref.current)
                     // ref.current?.loadVideoById(playlist[currentSong].path)
-                    ref.current?.loadPlaylist("RDEnNgASBdCeo", Math.floor(math.random() * 45, 0), 'highres'),
+                    ref.current?.loadPlaylist("RDEnNgASBdCeo", Math.floor(Math.random() * 45, 0), 'highres'),
                     ref.current?.setVolume(15)
                 },
                 'onError': (err: any) => {
