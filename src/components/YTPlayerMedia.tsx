@@ -49,8 +49,8 @@ export const YTPlayerMedia = () => {
                     style={{
                         position: 'absolute',
                         border: 0,
-                        inset: '-1px',
-                        padding: '1px'
+                        inset: '0 -5px -5px',
+                        padding: '10px'
                     }}
                     id={playerId.current}
                     width='100%'
