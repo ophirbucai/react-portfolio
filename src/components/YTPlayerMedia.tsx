@@ -48,7 +48,8 @@ export const YTPlayerMedia = () => {
                 <iframe
                     style={{
                         position: 'absolute',
-                        border: 'inset solid 1px black'
+                        border: 'none',
+                        top: '1px'
                     }}
                     id={playerId.current}
                     width='100%'
