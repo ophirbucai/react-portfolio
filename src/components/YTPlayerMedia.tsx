@@ -21,8 +21,8 @@ export const YTPlayerMedia = () => {
         // TODO: Fix browser issue - interactivity with iframe, ref.current?.contentWindow?.document.body.click()
         const player: YT.Player = new YT.Player(playerId.current, {
             playerVars,
-            width: '100%',
-            height: '100%',
+            width: 'calc(100% + 2px)',
+            height: 'calc(100% + 2px)',
             events: {
                 'onStateChange': ({ data }) => setPlayerState(data),
                 'onReady': () => {
