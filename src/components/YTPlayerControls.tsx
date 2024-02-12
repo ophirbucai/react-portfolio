@@ -64,19 +64,20 @@ export const YTPlayerControls = () => {
                 <IconButton size='small' aria-label='next' onClick={onNextClick}> <FaIcon icon={faForward} />
                 </IconButton>
             </Grid> 
-            <Grid xs={4} item sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                <FaIcon icon={volume === 0 ? faVolumeMute : faVolumeDown} onClick={() => onSetVolume(volume - 15)} />
+            <Grid xs={true} item sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                <IconButton size='small' onClick={() => onSetVolume(volume - 15)}>
+                    <FaIcon icon={volume === 0 ? faVolumeMute : faVolumeDown} />
+                </IconButton>
                 <Slider
                     value={volume}
                     onChange={(_e, value) => onSetVolume(+value)}
                     size='small'
                     min={0}
                     max={100} 
-                /> 
-                <FaIcon 
-                    icon={faVolumeUp} 
-                    onClick={() => onSetVolume(volume + 15)} 
                 />
+                <IconButton size='small' onClick={() => onSetVolume(volume + 15)}>
+                    <FaIcon icon={faVolumeUp} />
+                </IconButton>
             </Grid>
         </Grid>
     )
