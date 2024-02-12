@@ -12,7 +12,14 @@ import { useState } from 'react'
 import useMyPlaylist from '../hooks/useMyPlaylist.tsx'
 
 export const YTPlayerControls = () => {
+    /* TODO: Fix volume change 
+    function onSetVolume(value: number) {
+        value = value < 0 ? 0 : value > 100 ? 100 : value
+        setVolume(value)
+        ref.current?.setVolume(value)
+    }
     const [volume, setVolume] = useState(15)
+    */
     const { ref, playerReady } = useMyPlaylist()
 
     function onNextClick() {
@@ -23,15 +30,9 @@ export const YTPlayerControls = () => {
         ref.current?.previousVideo()
     }
 
-    function onSetVolume(value: number) {
-        value = value < 0 ? 0 : value > 100 ? 100 : value
-        setVolume(value)
-        ref.current?.setVolume(value)
-    }
-
     if (!playerReady) return null
     return (
-        <Grid container sx={{ textAlign: 'center', px: 1 }}>
+        <Grid container sx={{ textAlign: 'center', px: 1, py: 0 }}>
             {/* TODO: Make event emitter work consistently
             <Grid item xs={4}>
                 <form onSubmit={(e: any) => {
@@ -53,7 +54,7 @@ export const YTPlayerControls = () => {
                     />
                 </form> 
             </Grid>*/}
-            <Grid item xs={true} sx={{ display: 'flex', gap: 5 }}>
+            <Grid item xs={true} sx={{ display: 'flex', gap: 5, justifyContent: 'center' }}>
                 <IconButton size='small' aria-label='previous' onClick={onPrevClick}> <FaIcon icon={faBackward} />
                 </IconButton>
                 {/*TODO: Make Play/pause work consistently
@@ -64,6 +65,7 @@ export const YTPlayerControls = () => {
                 <IconButton size='small' aria-label='next' onClick={onNextClick}> <FaIcon icon={faForward} />
                 </IconButton>
             </Grid> 
+            {/* TODO: Fix volume on mobile
             <Grid xs={true} item sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                 <IconButton size='small' onClick={() => onSetVolume(volume - 15)}>
                     <FaIcon icon={volume === 0 ? faVolumeMute : faVolumeDown} />
@@ -78,7 +80,7 @@ export const YTPlayerControls = () => {
                 <IconButton size='small' onClick={() => onSetVolume(volume + 15)}>
                     <FaIcon icon={faVolumeUp} />
                 </IconButton>
-            </Grid>
+            </Grid>*/}
         </Grid>
     )
 }
