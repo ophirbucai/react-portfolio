@@ -28,7 +28,7 @@ export const YTPlayerControls = () => {
 
     if (!playerReady) return null
     return (
-        <Grid container sx={{ textAlign: 'center', px: 1, py: 0 }}>
+        <Grid container sx={{ textAlign: 'center', px: 1, py: 0, mt: -.5 }}>
             {/* TODO: Make event emitter work consistently
             <Grid item xs={4}>
                 <form onSubmit={(e: any) => {
@@ -50,7 +50,7 @@ export const YTPlayerControls = () => {
                     />
                 </form> 
             </Grid>*/}
-            <Grid item xs={true} sx={{ display: 'flex', gap: 2, justifyContent: 'center' }}>
+            <Grid item xs={true} sx={{ display: 'flex', gap: 2, justifyContent: 'space-between' }}>
                 <IconButton size='small' aria-label='previous' onClick={onPrevClick}>
                     <FaIcon icon={faBackward} />
                 </IconButton>
