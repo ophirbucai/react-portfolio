@@ -18,7 +18,7 @@ export const YTPlayerMedia = () => {
     }
 
     useEffect(() => {
-        ref.current?.contentWindow?.document.body.click()
+        // TODO: Fix browser issue - interactivity with iframe, ref.current?.contentWindow?.document.body.click()
         const player: YT.Player = new YT.Player(playerId.current, {
             playerVars,
             width: '100%',
@@ -29,9 +29,8 @@ export const YTPlayerMedia = () => {
                     setPlayerReady(true)
                     ref.current = Object.assign(player, ref.current)
                     // ref.current?.loadVideoById(playlist[currentSong].path)
-                    ref.current?.loadPlaylist("RDEnNgASBdCeo", 1, 0, 'highres'),
+                    ref.current?.loadPlaylist("RDEnNgASBdCeo", Math.floor(math.random() * 45, 0), 'highres'),
                     ref.current?.setVolume(15)
-                    console.log(ref.current)
                 },
                 'onError': (err: any) => {
                     console.error(err)
@@ -51,9 +50,7 @@ export const YTPlayerMedia = () => {
                 <iframe
                     style={{
                         position: 'absolute',
-                        top: '50%',
-                        left: '50%',
-                        transform: 'translate(-50%, -50%)'
+                        inset: 0
                     }}
                     id={playerId.current}
                     width='100%'
