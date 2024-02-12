@@ -1,18 +1,21 @@
 import { FontAwesomeIcon as FaIcon } from '@fortawesome/react-fontawesome'
 import {
     faForward,
-    faBackward,
-    faVolumeDown,
-    faVolumeUp,
-    faVolumeMute
+    faBackward
 } from '@fortawesome/free-solid-svg-icons'
-import { Slider, Grid } from '@mui/material'
+import { Grid } from '@mui/material'
 import IconButton from '@mui/material/IconButton'
-import { useState } from 'react'
 import useMyPlaylist from '../hooks/useMyPlaylist.tsx'
 
 export const YTPlayerControls = () => {
+    /* TODO: Fix volume change 
+    function onSetVolume(value: number) {
+        value = value < 0 ? 0 : value > 100 ? 100 : value
+        setVolume(value)
+        ref.current?.setVolume(value)
+    }
     const [volume, setVolume] = useState(15)
+    */
     const { ref, playerReady } = useMyPlaylist()
 
     function onNextClick() {
@@ -23,17 +26,12 @@ export const YTPlayerControls = () => {
         ref.current?.previousVideo()
     }
 
-    function onSetVolume(value: number) {
-        setVolume(value)
-        ref.current?.setVolume(value)
-    }
-
     if (!playerReady) return null
     return (
-        <Grid container sx={{ textAlign: 'center', px: 1 }}>
-            <Grid item xs={4}></Grid>
+        <Grid container sx={{ textAlign: 'center', px: 1, py: 0, mt: -.5 }}>
             {/* TODO: Make event emitter work consistently
-                <Grid item xs={4}><form onSubmit={(e: any) => {
+            <Grid item xs={4}>
+                <form onSubmit={(e: any) => {
                      e.preventDefault()
                      console.log('initiating', e.target[0].value)
                      // @ts-ignore
@@ -50,26 +48,37 @@ export const YTPlayerControls = () => {
                             value: 'startVideo'
                         }]}
                     />
-                </form> </Grid>*/}
-            <Grid item xs={true} sx={{ display: 'flex', gap: 5, justifyContent: 'center' }}>
-                <IconButton size='small' aria-label='previous' onClick={onPrevClick}> <FaIcon icon={faBackward} />
+                </form> 
+            </Grid>*/}
+            <Grid item xs={true} sx={{ display: 'flex', gap: 2, justifyContent: 'space-between' }}>
+                <IconButton size='small' aria-label='previous' onClick={onPrevClick}>
+                    <FaIcon icon={faBackward} size='xs' />
                 </IconButton>
                 {/*TODO: Make Play/pause work consistently
                     const isPlaying = playerState === YT.PlayerState.PLAYING
                     function onPausePlay() {
                         isPlaying ? ref.current?.pauseVideo() : ref.current?.playVideo()
                     <IconButton size='large' aria-label='play/pause' onClick={onPausePlay}>{isPlaying ? <FaIcon icon={faPause}/> : <FaIcon icon={faPlay}/>}</IconButton>*/}
-                <IconButton size='small' aria-label='next' onClick={onNextClick}> <FaIcon icon={faForward} />
+                <IconButton size='small' aria-label='next' onClick={onNextClick}>
+                    <FaIcon icon={faForward} size='xs' />
                 </IconButton>
-            </Grid> <Grid xs={4} item sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            <FaIcon icon={volume === 0 ? faVolumeMute : faVolumeDown} onClick={() => onSetVolume(volume - 15)} />
-            <Slider
-                value={volume}
-                onChange={(_e, value) => onSetVolume(+value)}
-                size='small'
-                min={0}
-                max={100} /> <FaIcon icon={faVolumeUp} onClick={() => onSetVolume(volume + 15)} />
-        </Grid>
+            </Grid> 
+            {/* TODO: Fix volume on mobile
+            <Grid xs={true} item sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                <IconButton size='small' onClick={() => onSetVolume(volume - 15)}>
+                    <FaIcon icon={volume === 0 ? faVolumeMute : faVolumeDown} />
+                </IconButton>
+                <Slider
+                    value={volume}
+                    onChange={(_e, value) => onSetVolume(+value)}
+                    size='small'
+                    min={0}
+                    max={100} 
+                />
+                <IconButton size='small' onClick={() => onSetVolume(volume + 15)}>
+                    <FaIcon icon={faVolumeUp} />
+                </IconButton>
+            </Grid>*/}
         </Grid>
     )
 }
