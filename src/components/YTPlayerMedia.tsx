@@ -53,8 +53,8 @@ export const YTPlayerMedia = () => {
                         inset: "-1px"
                     }}
                     id={playerId.current}
-                    width='100%'
-                    height='100%'
+                    width='calc(100% + 2px)'
+                    height='calc(100% + 2px)'
                     frameBorder='0'
                     src={`${window.origin.includes('https') ? 'https' : 'http'}://www.youtube.com/embed?${params.toString()}`}
                     ref={ref}
