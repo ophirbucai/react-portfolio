@@ -53,7 +53,7 @@ export const YTPlayerControls = () => {
                     />
                 </form> 
             </Grid>*/}
-            <Grid item xs={true} sx={{ display: 'flex', gap: 5, justifyContent: 'center' }}>
+            <Grid item xs={true} sx={{ display: 'flex', gap: 5 }}>
                 <IconButton size='small' aria-label='previous' onClick={onPrevClick}> <FaIcon icon={faBackward} />
                 </IconButton>
                 {/*TODO: Make Play/pause work consistently
