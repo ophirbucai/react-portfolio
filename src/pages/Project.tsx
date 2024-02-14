@@ -22,7 +22,7 @@ function Project() {
     }, [slug])
 
     const handleAnswerClick = (agreed: boolean) => (e: any) => {
-        e.target.blur()
+        e.currentTarget.blur()
         setCurrent(prevAnswer => agreed ? -1 : beMyValentine.length - 1 === prevAnswer ? 0 : prevAnswer + 1)
     }
 
@@ -57,7 +57,7 @@ function Project() {
                                         size={isLast ? 'medium' : 'large'}
                                         sx={{ order }}
                                         style={{ animationDelay }}
-                                        key={index}
+                                        key={text}
                                         onClick={handleAnswerClick(!isLast)}
                                     >{text}</Button>
                                 )
