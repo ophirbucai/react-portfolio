@@ -11,6 +11,7 @@ main.layout:has(.project) {
     &.valentine {
         &-gif {
             width: 100%;
+            height: auto;
         }
         .texts {
             display: flex;
