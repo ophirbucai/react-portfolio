@@ -47,7 +47,7 @@ main.layout:has(.project) {
                     opacity: 0.8;
                 }
 
-                &:hover {
+                &:focus-within {
                     background: radial-gradient(transparent, #78b8f030);
                 }
             }
