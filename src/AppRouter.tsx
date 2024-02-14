@@ -9,7 +9,7 @@ const AppRouter = () => {
             <Routes>
                 <Route path={navigation.paths.root} element={<Layout />}>
                     <Route index element={<ProtectedRoute><Suspense><Home /></Suspense></ProtectedRoute>} />
-                    <Route path={navigation.paths.about} element={<ProtectedRoute><Suspense><About /></Suspense</ProtectedRoute>} />
+                    <Route path={navigation.paths.about} element={<ProtectedRoute><Suspense><About /></Suspense></ProtectedRoute>} />
                     <Route path={navigation.paths.connect} element={<ProtectedRoute><Suspense><Connect /></Suspense></ProtectedRoute>} />
                     {/* <Route path={navigation.paths.projects} element={<Suspense><Construction /></Suspense>} /> */}
                     {/* <Route path={navigation.paths.blog} element={<Suspense><Construction/></Suspense>}/> */}
