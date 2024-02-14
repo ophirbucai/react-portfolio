@@ -21,7 +21,8 @@ function Project() {
         }
     }, [slug])
 
-    const handleAnswerClick = (agreed: boolean) => () => {
+    const handleAnswerClick = (agreed: boolean) => (e: any) => {
+        e.target.blur()
         setCurrent(prevAnswer => agreed ? -1 : beMyValentine.length - 1 === prevAnswer ? 0 : prevAnswer + 1)
     }
 
