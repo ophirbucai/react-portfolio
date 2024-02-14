@@ -36,7 +36,7 @@ function Project() {
                             alt='Hugging teddies'
                             src='https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3czcDdqNDVxZ3NmeDg2NGFqbWpxdHU4amQ2dG1sZmo5Ym55cHZ4byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/DEVcRlocpxZh2QvN4l/giphy.gif'
                         />
-                    <div>
+                    </div>
                         <Button onClick={() => setCurrent(0)}>Restart</Button>
                     </div>
                 </>
