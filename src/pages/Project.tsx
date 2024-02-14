@@ -32,9 +32,6 @@ function Project() {
                     <h1 className='crowd'>{title.split('').map((letter, index) =>
                         <span key={index}>{letter}</span>)}</h1>
                     <div className='valentine-gif'>
-                        <svg height='0' width='0'>
-                            <defs><clipPath id='heart-clip'><path d='	M12 4.419c-2.826-5.695-11.999-4.064-11.999 3.27 0 7.27 9.903 10.938 11.999 15.311 2.096-4.373 12-8.041 12-15.311 0-7.327-9.17-8.972-12-3.27z' /></clipPath ></defs >
-                        </svg>
                         <img
                             alt='Hugging teddies'
                             src='https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3czcDdqNDVxZ3NmeDg2NGFqbWpxdHU4amQ2dG1sZmo5Ym55cHZ4byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/DEVcRlocpxZh2QvN4l/giphy.gif'
