@@ -9,7 +9,7 @@ main.layout:has(.project) {
     &.valentine {
         .valentine-gif {
             width: 100%;
-            overflow: hidden;
+            margin: 10px 0;
 
             img {
                 max-width: 100%;
