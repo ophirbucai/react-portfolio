@@ -16,6 +16,7 @@ main.layout:has(.project) {
             justify-content: center;
             align-items: center;
             margin-top: -20px;
+            gap: 10px 20px;
 
             .text {
                 font-size: 1.2rem;
@@ -26,23 +27,18 @@ main.layout:has(.project) {
                 animation-fill-mode: backwards;
                 animation-iteration-count: 1, infinite;
                 animation-direction: normal, alternate-reverse;
-                margin: 0 20px;
-                @for $i from 1 through 15 {
-                    &:nth-child(#{$i}) {
-                        top: #{random($i * 20)}px;
-                        @keyframes jiggle {
-                            from {
-                                scale: 0.8;
-                            }
-                            to {
-                                scale: 1;
-                            }
-                        }
-                        @keyframes fadeIn {
-                            from { opacity: 0 }
-                        }
+                @keyframes jiggle {
+                    from {
+                        scale: 0.8;
+                    }
+                    to {
+                        scale: 1;
                     }
                 }
+                @keyframes fadeIn {
+                    from { opacity: 0 }
+                }
+
                 &:last-child {
                     opacity: 0.8;
                 }
