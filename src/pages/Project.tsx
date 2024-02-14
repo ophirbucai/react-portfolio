@@ -1,4 +1,4 @@
-import { Button } from '@mui/material'
+import { Button, Box } from '@mui/material'
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 
@@ -42,7 +42,7 @@ function Project() {
             ) : (
                 <>
                     <h1 dangerouslySetInnerHTML={{ __html: title }} />
-                    <div className='texts'>
+                    <Box sx={{ flexDirection: { lg: 'row', xs: 'column' }}} className='texts'>
                         {texts.map((text, index, arr) => {
                                 const isLast = arr.length === index + 1
                                 const order = Math.floor(Math.random() * arr.length - 1)
@@ -60,7 +60,7 @@ function Project() {
                                 )
                             }
                         )}
-                    </div>
+                    </Box>
                 </>
             )}
             {/*{image && <img alt={title} src={image} />}*/}
