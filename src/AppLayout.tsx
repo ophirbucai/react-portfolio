@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { NavLink, Outlet, useLocation, useNavigate, useOutletContext } from 'react-router-dom'
+import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { SocialLinks, Copyright } from './components'
 import navigation from './lib/constants/navigation'
 

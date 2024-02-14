@@ -55,7 +55,7 @@ function Project() {
                                         sx={{ order }}
                                         style={{ animationDelay }}
                                         key={text}
-                                        onClick={handleAnswerClick(!isLast, arr.length > current + 1)}
+                                        onClick={handleAnswerClick(!isLast)}
                                     >{text}</Button>
                                 )
                             }
