@@ -13,9 +13,6 @@ main.layout:has(.project) {
 
             img {
                 max-width: 100%;
-                /* height: auto; */
-                /* object-fit: cover; */
-                clip-path: url(#heart-clip);
             }
         }
         .texts {
