@@ -9,7 +9,7 @@ main.layout:has(.project) {
     text-align: center;
 
     &.valentine {
-        &-gif {
+        &-gif img {
             width: 100%;
             height: auto;
         }
