@@ -1,0 +1,71 @@
+main.layout:has(.project) {
+    grid-auto-rows: auto 1fr auto;
+}
+
+.project {
+    grid-row: 2;
+    text-align: center;
+
+    &.valentine {
+        .valentine-gif {
+            width: 100%;
+            margin: 10px 0;
+
+            img {
+                max-width: 100%;
+            }
+        }
+        .texts {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px 20px;
+            margin-top: 10px;
+
+            .text {
+                font-size: 1.2rem;
+                font-weight: 600;
+                border-radius: 100em;
+                animation-name: fadeIn, jiggle;
+                animation-duration: 750ms, 1.5s;
+                animation-fill-mode: backwards;
+                animation-iteration-count: 1, infinite;
+                animation-direction: normal, alternate-reverse;
+                @keyframes jiggle {
+                    from {
+                        scale: 0.8;
+                    }
+                    to {
+                        scale: 1;
+                    }
+                }
+                @keyframes fadeIn {
+                    from { opacity: 0 }
+                }
+
+                &:last-child {
+                    opacity: 0.8;
+                }
+
+                &:focus-within {
+                    background: radial-gradient(transparent, #78b8f030);
+                }
+            }
+        }
+        .crowd {
+            span {
+                animation: crowd 1s ease-in-out infinite alternate-reverse;
+                @for $i from 1 through 15 {
+                    &:nth-child(#{$i}) {
+                        animation-delay: #{$i * 150}ms;
+                    }
+                }
+            }
+            @keyframes crowd {
+                from {
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+}

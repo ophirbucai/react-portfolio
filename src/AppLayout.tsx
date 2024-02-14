@@ -37,23 +37,29 @@ const AppLayout: React.FC = () => {
             window.removeEventListener('wheel', handleScroll, false)
         }
     }, [])
+    if (import.meta.env.PROD) {
+        return <div className='app-layout'><Outlet /></div>
+    }
 
     return (
         <div className='app-layout'>
             <nav>
                 <ul className='menu'>
-                    {headerNavigation.map((props) => <li key={props.to}><NavLink className='effect' {...props}
-                                                                                 data-text={props.children}/></li>)}
+                    {headerNavigation.map((props) => (
+                        <li key={props.to}>
+                            <NavLink className='effect' {...props} data-text={props.children} />
+                        </li>
+                    ))}
                 </ul>
                 <ul className='social'>
-                    <SocialLinks/>
+                    <SocialLinks />
                 </ul>
             </nav>
             <main className='content'>
-                <Outlet/>
+                <Outlet />
             </main>
             <footer className='footer'>
-                <Copyright/>
+                <Copyright />
             </footer>
         </div>
     )
