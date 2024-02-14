@@ -57,7 +57,7 @@ function Project() {
                                         size={isLast ? 'medium' : 'large'}
                                         sx={{ order }}
                                         style={{ animationDelay }}
-                                        key={text}
+                                        key={index}
                                         onClick={handleAnswerClick(!isLast)}
                                     >{text}</Button>
                                 )
