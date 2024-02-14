@@ -9,7 +9,9 @@ main.layout:has(.project) {
     text-align: center;
 
     &.valentine {
-
+        &-gif {
+            width: 100%;
+        }
         .texts {
             display: flex;
             justify-content: center;
