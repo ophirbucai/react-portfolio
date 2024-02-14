@@ -1,0 +1,71 @@
+main.layout:has(.project) {
+    $gutter: 16px;
+    grid-auto-rows: minmax($gutter, 1fr) 1fr minmax($gutter, 1fr);
+}
+
+.project {
+    grid-row: 2;
+    $gutter: 16px;
+    text-align: center;
+
+    &.valentine {
+
+        .texts {
+            height: 180px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: -20px;
+
+            .text {
+                font-size: 1.2rem;
+                font-weight: 600;
+                border-radius: 100em;
+                animation-name: fadeIn, jiggle;
+                animation-duration: 750ms, 1.5s;
+                animation-fill-mode: backwards;
+                animation-iteration-count: 1, infinite;
+                animation-direction: normal, alternate-reverse;
+                margin: 0 20px;
+                @for $i from 1 through 15 {
+                    &:nth-child(#{$i}) {
+                        top: #{random($i * 20)}px;
+                        @keyframes jiggle {
+                            from {
+                                scale: 0.8;
+                            }
+                            to {
+                                scale: 1;
+                            }
+                        }
+                        @keyframes fadeIn {
+                            from { opacity: 0 }
+                        }
+                    }
+                }
+                &:last-child {
+                    opacity: 0.8;
+                }
+
+                &:hover {
+                    background: radial-gradient(transparent, #78b8f030);
+                }
+            }
+        }
+        .crowd {
+            span {
+                animation: crowd 1s ease-in-out infinite alternate-reverse;
+                @for $i from 1 through 15 {
+                    &:nth-child(#{$i}) {
+                        animation-delay: #{$i * 150}ms;
+                    }
+                }
+            }
+            @keyframes crowd {
+                from {
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+}
