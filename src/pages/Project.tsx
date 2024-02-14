@@ -32,6 +32,7 @@ function Project() {
                     <h1 className='crowd'>{title.split('').map((letter, index) =>
                         <span key={index}>{letter}</span>)}</h1>
                     <img
+                        className='valentine-gif'
                         alt='Hugging teddies'
                         src='https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3czcDdqNDVxZ3NmeDg2NGFqbWpxdHU4amQ2dG1sZmo5Ym55cHZ4byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/DEVcRlocpxZh2QvN4l/giphy.gif'
                     />
